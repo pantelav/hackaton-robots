@@ -44,7 +44,15 @@ import { logo } from "src/assets";
 import { INavItem } from "./models";
 import { useUiStore, useSlideStore } from "src/stores/uiStore";
 import { storeToRefs } from "pinia";
-import { slideAi } from "src/assets";
+import {
+  slideAi,
+  bf,
+  example1,
+  example2,
+  microservice,
+  team,
+  economy,
+} from "src/assets";
 
 const uiStore = useUiStore();
 const slideStore = useSlideStore();
@@ -81,12 +89,17 @@ const mainNavItems = ref<INavItem[]>([
 ]);
 
 const funcNavItems: INavItem[] = [
-  { title: "Система микросервисов", icon: "hub", id: 1 },
+  { title: "Система микросервисов", icon: "hub", id: 1, slide: microservice },
   { title: "AI/Computer vision", icon: "computer", slide: slideAi, id: 2 },
-  { title: "Backend/Frontend", icon: "databse", id: 3 },
-  { title: "Экономический анализ", icon: "trending_up", id: 4 },
-  { title: "Пример работы модели", icon: "psychology", id: 5 },
-  { title: "Наша команда", icon: "groups", id: 6 },
+  { title: "Backend/Frontend", icon: "databse", id: 3, slide: bf },
+  { title: "Экономический анализ", icon: "trending_up", id: 4, slide: economy },
+  {
+    title: "Пример работы модели",
+    icon: "psychology",
+    id: 5,
+    slide: [example1, example2],
+  },
+  { title: "Наша команда", icon: "groups", id: 6, slide: team },
 ];
 
 function toggleItem(item: INavItem) {

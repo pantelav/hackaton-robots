@@ -6,7 +6,7 @@ export interface INavItem {
   icon?: string,
   action?: () => void,
   toggle?: boolean,
-  slide?: string
+  slide?: string | string[]
 }
 
 export interface IStreetCard {

@@ -20,7 +20,7 @@ export const useUiStore = defineStore('ui', () => {
 })
 
 export const useSlideStore = defineStore('slide', () => {
-  const activeSlide = ref({
+  const activeSlide = ref<{id: number, url:string | string[]}>({
     id: 0,
     url: ''
   })

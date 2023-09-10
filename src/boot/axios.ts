@@ -7,8 +7,7 @@ declare module '@vue/runtime-core' {
   }
 }
 
-// export const baseURL = '://25.5.221.55:8000'
-export const baseURL = '://25.38.72.80:8000'
+export const baseURL = '://176.99.135.63:8000'
 const httpUrl = 'http' + baseURL
 const api = axios.create({ baseURL: httpUrl });
 

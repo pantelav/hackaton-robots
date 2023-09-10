@@ -1,15 +1,18 @@
 <template>
   <div class="info__card" @click="getRoutes">
-    <img :src="robot" alt="robot" class="robot">
+    <img :src="robot" alt="robot" class="robot" />
     <div class="flex">
       <div class="info">
         <p>{{ props.data.name }}</p>
-        <q-spinner-ball color="secondary" v-if="loading"/>
+        <q-spinner-ball color="secondary" v-if="loading" />
         <p class="desc">{{ props.data.desc }}</p>
       </div>
       <div
         class="status"
-        :class="{ positive: props.data.isActive, negative: !props.data.isActive }"
+        :class="{
+          positive: props.data.isActive,
+          negative: !props.data.isActive,
+        }"
       >
         <q-icon name="radio_button_checked" />
         <p>{{ props.data.isActive ? "Онлайн" : "Офлайн" }}</p>
@@ -21,51 +24,48 @@
 <script setup lang="ts">
 import { api } from "src/boot/axios";
 import { IRobot, IRoute } from "./models";
-import {useUiStore} from 'src/stores/uiStore'
-import { storeToRefs } from 'pinia';
-import { ref } from 'vue';
-import { robot } from 'src/assets';
+import { useUiStore } from "src/stores/uiStore";
+import { storeToRefs } from "pinia";
+import { ref } from "vue";
+import { robot } from "src/assets";
 
 const props = defineProps<{
   data: IRobot;
 }>();
 
-const uiStore = useUiStore()
-const {routes, robotsMenu, routesMenu} = storeToRefs(uiStore)
-const loading = ref(false)
+const uiStore = useUiStore();
+const { routes, robotsMenu, routesMenu } = storeToRefs(uiStore);
+const loading = ref(false);
 
 async function getRoutes() {
   try {
-    loading.value = true
+    loading.value = true;
     const data = await api("/routes/" + props.data.id);
-    const routesData: IRoute[] = data.data
-    routes.value = routesData
-    routesMenu.value = true
+    const routesData: IRoute[] = data.data;
+    routes.value = routesData;
+    routesMenu.value = true;
   } catch (error) {
     console.log(error);
   } finally {
-    loading.value = false
+    loading.value = false;
   }
-
 }
 </script>
 
 <style scoped lang="scss">
-
 .info__card {
   height: 100px;
   display: flex;
-  gap: 5px;
+  gap: 10px;
 }
 .info {
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
   align-items: start;
-  font-size: 24px;
+  font-size: 16px;
   .desc {
     color: $accent;
-    font-size: 20px;
   }
 }
 

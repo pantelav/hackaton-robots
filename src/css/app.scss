@@ -1,0 +1,55 @@
+// app global css in SCSS form
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap");
+
+html,
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.marker {
+  font-size: 24px;
+  background: none;
+  border: none;
+  fill: none;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: $primary #ffffff00;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $primary;
+  border-radius: 10px;
+  border: 3px solid #ffffff00;
+}
+
+.card__container {
+  min-width: 350px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 8px;
+  background-color: rgba(125, 125, 125, 0.156);
+}
+
+
+.info__card {
+  background: #fff;
+  width: 350px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
